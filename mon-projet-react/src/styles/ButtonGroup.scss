@@ -1,28 +1,33 @@
-/* src/components/ButtonGroup.scss */
+@use './App.scss' as *;
 
-/* Styles pour le conteneur de boutons */
 .btn-group {
     display: flex;
-    gap: 10px;
-    /* Espacement entre les boutons */
+    gap: 0;
+    padding: 5px;
+    background-color: $color-septenary;
+    border-radius: 50px;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 329px;
+    height: 59px;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn {
     padding: 10px 20px;
-    border: 1px solid #3498db;
-    background-color: white;
-    color: #3498db;
+    background-color: transparent;
+    color: white;
+    border: none;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-    border-radius: 5px;
-}
+    width: 146px;
+    height: 40px;
+    border-radius: 20px;
+    font-family: $font-primary;
 
-.btn:hover {
-    background-color: #3498db;
-    color: white;
-}
-
-.active {
-    background-color: #3498db;
-    color: white;
+    &.active {
+        background-color: #49BBBD;
+        color: white;
+    }
 }
