@@ -1,0 +1,42 @@
+@use '../styles/App.scss' as *;
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.picture {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.picture img {
+    width: 737px;
+    height: 825px;
+    border-radius: 10px;
+}
+
+.form-container {
+    flex: 1;
+    padding: 40px;
+    background-color: $color-primary;
+    border-radius: 10px;
+    height: 611px;
+    width: 454px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+
+
+
+

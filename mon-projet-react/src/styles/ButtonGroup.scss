@@ -1,0 +1,28 @@
+/* src/components/ButtonGroup.scss */
+
+/* Styles pour le conteneur de boutons */
+.btn-group {
+    display: flex;
+    gap: 10px;
+    /* Espacement entre les boutons */
+}
+
+.btn {
+    padding: 10px 20px;
+    border: 1px solid #3498db;
+    background-color: white;
+    color: #3498db;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.active {
+    background-color: #3498db;
+    color: white;
+}
