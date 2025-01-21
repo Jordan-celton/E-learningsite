@@ -1,4 +1,4 @@
-import '../styles/ButtonGroup.scss';
+import '../styles/ButtonGroupLogin.scss';
 import { useState } from 'react';
 
 function ButtonGroup() {

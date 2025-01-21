@@ -12,3 +12,50 @@ $color-septenary:  rgb(73, 187, 189, 60%);
 
 $font-primary: 'Poppins' , sans-serif;
 
+// Variables de tailles
+
+$size-small: 1rem;
+$size-medium: 1.5rem;
+$size-large: 2rem;
+
+// Variables de marges
+
+$margin-small: 1rem;
+$margin-medium: 1.5rem;
+
+
+// Variables de padding
+
+$padding-small: 1rem;
+$padding-medium: 1.5rem;
+
+
+// Variables de bordures
+
+$border-color: #49BBBD;
+$border-radius-large: 20px;
+
+// Variables de dégradés
+
+$gradient-primary: linear-gradient(90deg, #49BBBD 0%, #ACACAC 100%);
+
+
+// Variables de breakpoints
+
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 992px;
+
+// Mixins
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+

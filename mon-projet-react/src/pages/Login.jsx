@@ -1,6 +1,7 @@
 import '../styles/Login.scss'
 import LoginPicture from '../assets/images/LoginPicture.webp'
-import ButtonGroup from '../components/ButtonGroup'
+import ButtonGroupLogin from '../components/ButtonGroupLogin'
+import FormLogin from '../components/FormLogin';
 
 const Login = () => {
   return (
@@ -10,7 +11,8 @@ const Login = () => {
     </div>
         <div className="form-container">
       <h2>Welcome to lorem..!</h2>
-      <ButtonGroup />
+      <ButtonGroupLogin />
+      <FormLogin />
       </div>
     </section>
   );
