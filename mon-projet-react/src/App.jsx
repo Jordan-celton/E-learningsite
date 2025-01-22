@@ -1,12 +1,17 @@
-import { BrowserRouter as Router } from "react-router-dom"; // Import de React Router
-import "./styles/App.scss"; // Import du fichier de styles global
-import Login from "./pages/Login"; // Import de la page Login
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./styles/App.scss";
+import Login from "./pages/Login";
+import Home from "./pages/Home"; // Assure-toi que cette page est créée
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function App() {
   return (
     <Router>
-      <Login />
+      <Routes>
+        <Route path="/" element={<Login />} /> {/* Page de login */}
+        <Route path="/home" element={<Home />} />{" "}
+        {/* Page d'accueil après la connexion */}
+      </Routes>
     </Router>
   );
 }

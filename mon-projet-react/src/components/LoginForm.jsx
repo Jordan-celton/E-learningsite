@@ -1,9 +1,10 @@
 import "../styles/ButtonGroupLogin.scss";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Importer useNavigate
 import LoginPicture from "../assets/images/LoginPicture.webp";
 import LoginPicture2 from "../assets/images/LoginPicture2.webp";
 
-function ButtonGroup() {
+function LoginForm() {
   const [activeButton, setActiveButton] = useState("login");
   const [formData, setFormData] = useState({
     email: "",
@@ -12,11 +13,13 @@ function ButtonGroup() {
   });
   const [rememberMe, setRememberMe] = useState(false);
 
+  // Créer une instance de navigate pour rediriger l'utilisateur
+  const navigate = useNavigate();
+
   const handleButtonClick = (button) => {
     setActiveButton(button);
-    // Réinitialiser le formulaire lorsqu'on passe d'un formulaire à l'autre
     setFormData({ email: "", username: "", password: "" });
-    setRememberMe(false); // Réinitialiser la case "Remember Me" lors du changement
+    setRememberMe(false);
   };
 
   const handleChange = (e) => {
@@ -30,8 +33,12 @@ function ButtonGroup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Traitement du formulaire (par exemple, envoi des données à une API)
     console.log("Form submitted:", formData, "Remember Me:", rememberMe);
+
+    // Redirection vers la page "Home" après un succès de connexion
+    if (activeButton === "login") {
+      navigate("/home"); // Redirige vers la page home
+    }
   };
 
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -42,20 +49,17 @@ function ButtonGroup() {
 
   return (
     <div className="form-and-image">
-      {/* Image */}
       {activeButton === "login" && (
         <div className="form-image-container">
           <img src={LoginPicture} alt="Login" className="form-image" />
         </div>
       )}
-
       {activeButton === "register" && (
         <div className="form-image-container">
           <img src={LoginPicture2} alt="Register" className="form-image" />
         </div>
       )}
 
-      {/* Form */}
       <div className="btn-group-container">
         <h1>Welcome to lorem..!</h1>
         <div className="btn-group">
@@ -77,8 +81,7 @@ function ButtonGroup() {
           industry.
         </p>
 
-        {/* Form Content */}
-        <div className="form-container-login">
+        <div className="form-container">
           <div className="form-content">
             <form onSubmit={handleSubmit}>
               {activeButton === "register" && (
@@ -124,15 +127,14 @@ function ButtonGroup() {
                     onClick={togglePasswordVisibility}
                   >
                     {passwordVisible ? (
-                      <i className="fas fa-eye-slash"></i> // Icône d’œil masqué
+                      <i className="fas fa-eye-slash"></i>
                     ) : (
-                      <i className="fas fa-eye"></i> // Icône d’œil affiché
+                      <i className="fas fa-eye"></i>
                     )}
                   </span>
                 </div>
               </div>
 
-              {/* Remember Me and Forgot Password div */}
               {activeButton === "login" && (
                 <div className="remember-forgot-container">
                   <div className="remember-me">
@@ -146,7 +148,6 @@ function ButtonGroup() {
                     <label htmlFor="rememberMe">Remember Me</label>
                   </div>
 
-                  {/* Forgot Password link */}
                   <div className="forgot-password">
                     <a href="/forgot-password">Forgot Password?</a>
                   </div>
@@ -164,4 +165,4 @@ function ButtonGroup() {
   );
 }
 
-export default ButtonGroup;
+export default LoginForm;
