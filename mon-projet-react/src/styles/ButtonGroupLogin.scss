@@ -1,5 +1,41 @@
 @use './App.scss' as *;
 
+.form-and-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    /* Permet un espacement entre l'image et le formulaire */
+    margin: 40px auto;
+    transition: flex-direction 0.3s ease-in-out;
+}
+
+.form-image-container {
+    flex: 1;
+    /* Permet à l'image de s'adapter à l'espace disponible */
+    max-width: 450px;
+    /* Limite la taille de l'image */
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.form-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.btn-group-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;;
+    max-width: 900px;
+    padding: $padding-medium;
+    border-radius: $border-radius-large;
+    font-family: $font-primary;
+}
+
 .btn-group {
     display: flex;
     gap: 0;
@@ -27,7 +63,168 @@
     font-family: $font-primary;
 
     &.active {
-        background-color: #49BBBD;
+        background-color: #49bbbd;
         color: white;
+    }
+}
+
+p {
+    font-size: 14px;
+    color: $color-quinary;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-container-login {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    width: 100%;
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: $color-secondary;
+        padding: $padding-small;
+    }
+
+    input {
+        width: 100%;
+        padding: $padding-small;
+        font-size: 14px;
+        border: 1px solid $border-color;
+        border-radius: $border-radius-large;
+        outline: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        box-sizing: border-box;
+
+        &:focus {
+            border-color: $border-color;
+            box-shadow: 0 0 5px $border-color;
+        }
+
+        &::placeholder {
+            color: $color-quinary;
+        }
+    }
+}
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    input {
+        width: 100%;
+        padding-right: 40px; // Crée un espace pour l'icône
+    }
+
+        .password-toggle-icon {
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            color: $color-quinary;
+    
+            &:hover {
+                color: $color-secondary;
+            }
+    
+            /* Ajouter un effet de focus pour l'accessibilité */
+            &:focus {
+                outline: 2px solid $color-tertiary;
+            }
+        }
+}
+
+.remember-forgot-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 14px;
+    color: $color-quinary;
+    margin-top: 20px;
+
+    .remember-me {
+        display: flex;
+        align-items: center;
+    }
+
+    .forgot-password {
+        display: flex;
+        align-items: center;
+    }
+
+    a {
+        color: $color-secondary;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.submit-btn {
+    display: block;
+    margin-left: auto;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: $color-tertiary;
+    color: $color-primary;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 150px;
+    height: 49px;
+
+    &:hover {
+        background-color: $color-septenary;
+        transform: scale(1.05);
+    }
+
+    &:active {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .form-and-image {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-image-container {
+        display: none;
+        /* Masque l'image sur les écrans mobiles */
+    }
+
+    .form-content {
+        padding: 0 10px;
+    }
+
+    .btn-group-container {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .btn-group {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .btn {
+        width: 48%;
     }
 }
