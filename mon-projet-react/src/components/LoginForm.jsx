@@ -1,10 +1,12 @@
 import "../styles/ButtonGroupLogin.scss";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Importer useNavigate
+import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import LoginPicture from "../assets/images/LoginPicture.webp";
 import LoginPicture2 from "../assets/images/LoginPicture2.webp";
 
 function LoginForm() {
+  const location = useLocation(); // Récupérer l'état transmis afin d'arriver sur register
+
   const [activeButton, setActiveButton] = useState("login");
   const [formData, setFormData] = useState({
     email: "",
@@ -13,8 +15,14 @@ function LoginForm() {
   });
   const [rememberMe, setRememberMe] = useState(false);
 
-  // Créer une instance de navigate pour rediriger l'utilisateur
   const navigate = useNavigate();
+
+  // Synchroniser l'état initial avec l'état transmis via location
+  useEffect(() => {
+    if (location.state?.activeButton) {
+      setActiveButton(location.state.activeButton);
+    }
+  }, [location.state]);
 
   const handleButtonClick = (button) => {
     setActiveButton(button);
@@ -35,9 +43,8 @@ function LoginForm() {
     e.preventDefault();
     console.log("Form submitted:", formData, "Remember Me:", rememberMe);
 
-    // Redirection vers la page "Home" après un succès de connexion
     if (activeButton === "login") {
-      navigate("/home"); // Redirige vers la page home
+      navigate("/home");
     }
   };
 
