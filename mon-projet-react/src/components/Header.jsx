@@ -1,7 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import BannerLogo from "../assets/images/logo.png";
 import btnPlay from "../assets/images/btn-play.png";
-import "../styles/BannerHome.scss";
+import TeenageGirl from "../assets/images/teenage-girl.webp";
+import IconHeader from "../assets/images/icon-header.png";
+import IconHeader2 from "../assets/images/icon-header2.png";
+import IconHeader3 from "../assets/images/icon-header3.png";
+import "../styles/Header.scss";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -43,8 +47,32 @@ const Header = () => {
           interactive way
         </p>
         <div className="banner-play-btn">
+          <button>Join for free</button>
           <img src={btnPlay} alt="Play icon" />
           <span>Watch how it works</span>
+        </div>
+      </div>
+      <div className="banner-info">
+        <div className="banner-info-img">
+          <img src={TeenageGirl} alt="Bannière" />
+        </div>
+        <div className="banner-info-item1">
+          <img src={IconHeader2} alt="Bannière" />
+          <h2>250k</h2>
+          <p>Assisted Student</p>
+        </div>
+        <div className="banner-info-item2">
+          <h2>Congratulations</h2>
+          <p>Your admission completed</p>
+        </div>
+        <div className="banner-info-item3">
+          <img src={IconHeader3} alt="Bannière" />
+          <h2>User Experience Class</h2>
+          <p>Today at 12.00 PM</p>
+          <button>Join Now</button>
+        </div>
+        <div>
+          <img src={IconHeader} alt="Bannière" />
         </div>
       </div>
     </section>

@@ -75,9 +75,10 @@
     }
 
     .banner-title {
+        display: flex;
+        flex-direction: column;
         text-align: center;
-        margin-top: 20px; // Espacement entre la barre de navigation et le titre
-
+        margin-top: 20px;
         h1 {
             font-size: 2.5rem;
             color: $color-primary;
@@ -106,17 +107,80 @@
             }
         }
     }
+
+        .banner-play-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+    
+            button {
+                background-color: rgba(56.1532258065, 153.1451612903, 154.8467741935, 0.6);
+                color: $color-primary;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+                border-radius: $border-radius-large;
+                transition: background-color 0.3s, color 0.3s;
+                display: flex;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+    
+            img {
+                width: 40px;
+                height: 40px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+    
+            span {
+                font-size: 1rem;
+                color: $color-primary;
+                margin-bottom: 0;
+                align-self: center;
+            }
+        }
+
+                .banner-info {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    text-align: center;
+                }
+        
+                .banner-info-img {
+                    margin-bottom: 20px;
+                }
+        
+                .banner-info-item1,
+                .banner-info-item2,
+                .banner-info-item3 {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 10px 0;
+                    background: $color-primary;
+                    border-radius: 10px;
+                }
+        
+                .banner-info div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
 }
 
 @media (max-width: 768px) {
     .header {
         .header-top {
-            flex-direction: column; // Sur les petits écrans, empile les éléments de manière verticale
+            flex-direction: column; 
             align-items: center;
-            gap: $margin-small; // Espacement entre les éléments
-
+            gap: $margin-small; 
             .banner-nav ul {
-                flex-direction: column; // Navigation en colonne sur petits écrans
+                flex-direction: column;
                 align-items: center;
             }
 
