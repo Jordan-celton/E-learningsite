@@ -1,191 +1,252 @@
 @use '../styles/App.scss' as *;
 @use "sass:color";
 
+// Variables pour les couleurs et marges
+$primary-color: #00b5d7;
+$secondary-color: orange;
+$text-color: white;
+$mobile-breakpoint: 768px;
+$tablet-breakpoint: 1024px;
+
 .header {
-    display: flex;
-    flex-direction: column; // Alignement vertical pour l'ensemble de l'en-tête
-    align-items: center;
-    background: $color-tertiary;
-    padding: $padding-medium;
+    background-color: $primary-color;
+    color: $text-color;
+    padding: 20px;
+    clip-path: ellipse(100% 124% at 50% -26%);
 
+    // Header top (logo, navigation et boutons)
     .header-top {
-        display: flex; // Pour aligner banner-logo, banner-nav, et banner-buttons sur la même ligne
-        justify-content: space-between; // Les éléments sont répartis de manière égale
-        width: 100%; // Assure que cette section occupe toute la largeur disponible
-        align-items: center; // Centrer verticalement les éléments
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-        .banner-logo {
-
-            img {
-                max-height: 50px; // Ajustez selon votre design
-                object-fit: contain;
-            }
+        .banner-logo img {
+            width: 100px;
         }
 
-        .banner-nav {
-            ul {
-                display: flex;
-                gap: $margin-medium; // Espace entre les éléments de la liste
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                
+        .banner-nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
 
-                li {
-                    cursor: pointer;
-                    color: $color-primary;
-                    font-family: $font-primary;
-                    font-size: $size-small;
-                }
+            li {
+                font-size: 16px;
+                cursor: pointer;
             }
         }
 
         .banner-buttons {
-            display: flex;
-            gap: 20px;
 
-            .login-btn {
-                background-color: $color-primary;
-                color: $color-secondary;
-                padding: 10px 20px;
+            .login-btn,
+            .signup-btn {
+                background-color: $text-color;
+                color: $primary-color;
                 border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
                 cursor: pointer;
-                font-size: 16px;
-                border-radius: $border-radius-large;
-                transition: background-color 0.3s, color 0.3s;
+
+                &:hover {
+                    background-color: lighten($text-color, 20%);
+                }
             }
 
             .signup-btn {
-                background-color: color.adjust($color-septenary, $lightness: -10%);
-                border: 1px solid color.adjust($color-septenary, $lightness: -10%);
-                color: white;
-                padding: 10px 20px;
-                font-size: 16px;
-                cursor: pointer;
-                border-radius: $border-radius-large;
-                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-                transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-
-                &:hover {
-                    background-color: color.adjust($color-septenary, $lightness: -20%);
-                    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
-                }
+                margin-left: 10px;
             }
         }
     }
 
+    // Titre principal et boutons
     .banner-title {
-        display: flex;
-        flex-direction: column;
         text-align: center;
         margin-top: 20px;
+
         h1 {
-            font-size: 2.5rem;
-            color: $color-primary;
+            font-size: 36px;
+            color: $secondary-color;
         }
 
         p {
-            font-size: 1.2rem;
-            color: $color-primary;
+            margin: 10px 0;
+            font-size: 18px;
         }
 
         .banner-play-btn {
             display: flex;
+            justify-content: center;
             align-items: center;
             gap: 10px;
-            cursor: pointer;
+
+            button {
+                background-color: $secondary-color;
+                color: $text-color;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: darken($secondary-color, 10%);
+                }
+            }
 
             img {
-                width: 100px;
-                height: 100px;
+                width: 20px;
             }
 
             span {
-                font-size: 1rem;
-                color: $color-primary;
-                margin-bottom: 15px;
+                color: $text-color;
             }
         }
     }
 
-        .banner-play-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            cursor: pointer;
-    
-            button {
-                background-color: rgba(56.1532258065, 153.1451612903, 154.8467741935, 0.6);
-                color: $color-primary;
-                padding: 10px 20px;
-                border: none;
-                cursor: pointer;
-                font-size: 16px;
-                border-radius: $border-radius-large;
-                transition: background-color 0.3s, color 0.3s;
-                display: flex;
-                align-items: center;
-                margin-bottom: 15px;
-            }
-    
-            img {
-                width: 40px;
-                height: 40px;
-                display: inline-block;
-                vertical-align: middle;
-            }
-    
-            span {
-                font-size: 1rem;
-                color: $color-primary;
-                margin-bottom: 0;
-                align-self: center;
-            }
+    // Informations additionnelles
+    .banner-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+
+        .banner-info-img img {
+            max-width: 400px;
         }
 
-                .banner-info {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    flex-direction: column;
-                    text-align: center;
+        .banner-info-item1,
+        .banner-info-item2,
+        .banner-info-item3 {
+            background-color: $text-color;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px;
+            text-align: center;
+
+            h2 {
+                font-size: 24px;
+                margin-bottom: 5px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            button {
+                margin-top: 10px;
+                background-color: $primary-color;
+                color: $text-color;
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: darken($primary-color, 10%);
                 }
-        
-                .banner-info-img {
-                    margin-bottom: 20px;
-                }
-        
-                .banner-info-item1,
-                .banner-info-item2,
-                .banner-info-item3 {
-                    display: flex;
-                    flex-direction: column;
-                    margin: 10px 0;
-                    background: $color-primary;
-                    border-radius: 10px;
-                }
-        
-                .banner-info div {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
+            }
+        }
+    }
 }
 
-@media (max-width: 768px) {
+// Points de rupture pour tablettes et mobiles
+@media (max-width: $tablet-breakpoint) {
     .header {
+        padding: 15px;
+
         .header-top {
-            flex-direction: column; 
+            flex-direction: column;
             align-items: center;
-            gap: $margin-small; 
+
             .banner-nav ul {
-                flex-direction: column;
-                align-items: center;
+                gap: 15px;
             }
 
             .banner-buttons {
-                margin-top: $margin-small;
+                margin-top: 10px;
+            }
+        }
+
+        .banner-title {
+            h1 {
+                font-size: 28px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+
+        .banner-info {
+            flex-wrap: wrap;
+
+            .banner-info-item1,
+            .banner-info-item2,
+            .banner-info-item3 {
+                max-width: 300px;
+            }
+        }
+    }
+}
+
+@media (max-width: $mobile-breakpoint) {
+    .header {
+        padding: 10px;
+
+        .header-top {
+            .banner-logo img {
+                width: 80px;
+            }
+
+            .banner-nav ul {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+
+                li {
+                    font-size: 14px;
+                }
+            }
+
+            .banner-buttons {
+                flex-direction: column;
+                gap: 10px;
+
+                .signup-btn {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        .banner-title {
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .banner-play-btn {
+                button {
+                    font-size: 14px;
+                    padding: 8px 16px;
+                }
+            }
+        }
+
+        .banner-info {
+            flex-direction: column;
+            align-items: center;
+
+            .banner-info-img img {
+                max-width: 100%;
+            }
+
+            .banner-info-item1,
+            .banner-info-item2,
+            .banner-info-item3 {
+                width: 100%;
+                margin: 10px 0;
             }
         }
     }
