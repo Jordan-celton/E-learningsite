@@ -2,20 +2,18 @@
 @use "sass:color";
 
 .header {
-    background-color: $color-tertiary;
-    color: $color-primary;
+    background-color: #00c8c8; // Couleur turquoise
+    color: white;
     padding: 20px;
     clip-path: ellipse(100% 124% at 50% -26%);
-    height: 1119px;
 
-    // Header top (logo, navigation et boutons)
     .header-top {
         display: flex;
         justify-content: space-between;
         align-items: center;
 
         .banner-logo img {
-            width: 100px;
+            width: 120px; // Taille ajustée
         }
 
         .banner-nav ul {
@@ -26,6 +24,11 @@
             li {
                 font-size: 16px;
                 cursor: pointer;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: orange;
+                }
             }
         }
 
@@ -35,21 +38,24 @@
 
             .login-btn,
             .signup-btn {
-                background-color: $color-primary;
-                color: $color-secondary;
+                background-color: white;
+                color: #00c8c8;
                 border: none;
                 padding: 10px 20px;
-                border-radius: 5px;
+                border-radius: 20px;
+                font-weight: bold;
                 cursor: pointer;
+                transition: background-color 0.3s;
 
                 &:hover {
-                    background-color: lighten($color-primary, 10%);
+                    background-color: #008b8b;
+                    color: white;
                 }
             }
 
             .signup-btn {
-                background-color: #87D2D4;
-                color: $color-primary;
+                background-color: orange;
+                color: white;
             }
         }
     }
@@ -58,122 +64,128 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: 20px;
+        margin-top: 40px;
 
-        .banner-img img {
-            max-width: 400px;
-        }
-    }
+        .banner-title {
+            max-width: 50%;
+            text-align: left;
 
-    // Titre principal et boutons
-    .banner-title {
-        text-align: center;
-        margin-top: 20px;
+            h1 {
+                font-size: 48px;
+                line-height: 1.2;
 
-        h1 {
-            font-size: 36px;
-
-            span {
-                color: orange;
-            }
-        }
-
-        p {
-            margin: 10px 0;
-            font-size: 18px;
-        }
-
-        .banner-play-btn {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-
-            button {
-                background-color: #87D2D4;
-                color: $color-primary;
-                border: none;
-                padding: 10px 20px;
-                border-radius: 5px;
-                cursor: pointer;
-
-                &:hover {
-                    background-color: lighten(#87D2D4, 10%);
+                span {
+                    color: orange;
                 }
-            }
-
-            img {
-                margin-bottom: -15px;
-                width: 80px;
-                height: 80px;
-            }
-
-            span {
-                color: $color-secondary;
-            }
-        }
-    }
-
-    // Informations additionnelles
-    .banner-info {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); // Grid adaptative
-        gap: 20px;
-        justify-content: center;
-        align-items: center;
-        margin-top: 50px;
-
-        .banner-info-img img {
-            max-width: 100%;
-        }
-
-        .banner-info-item {
-            background: linear-gradient(135deg, $color-primary, $color-tertiary);
-            color: white;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-            &:hover {
-                transform: translateY(-10px) scale(1.05);
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            }
-
-            img {
-                max-width: 50px;
-                margin-bottom: 10px;
-            }
-
-            h2 {
-                font-size: 18px;
-                margin-bottom: 10px;
             }
 
             p {
-                font-size: 14px;
+                font-size: 18px;
+                margin: 20px 0;
             }
 
-            button {
-                margin-top: 10px;
-                background-color: $color-secondary;
-                color: $color-primary;
-                padding: 8px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
+            .banner-play-btn {
+                display: flex;
+                align-items: center;
+                gap: 15px;
 
-                &:hover {
-                    background-color: lighten($color-secondary, 10%);
+                button {
+                    background-color: #87d2d4;
+                    color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 20px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+
+                img {
+                    width: 50px;
+                }
+
+                span {
+                    color: #fff;
                 }
             }
         }
+
+           .banner-info {
+               position: relative; // Pour positionner les bulles précisément
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               padding: 50px;
+
+               & .icon {
+                position: absolute;
+                   top: 200px;
+                   right: 0px;
+               }
+    
+               .banner-info-item {
+                   position: absolute;
+                   background-color: white;
+                   color: #00c8c8;
+                   border-radius: 25px; // Bordures très arrondies pour ressembler à des bulles
+                   padding: 20px;
+                   text-align: center;
+                   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                   width: 180px;
+                   transition: transform 0.3s, box-shadow 0.3s;
+
+    
+                   h2 {
+                       margin: 10px 0;
+                       font-size: 24px;
+                       color: #00c8c8;
+                   }
+    
+                   p {
+                       font-size: 14px;
+                       color: #666;
+                   }
+    
+                   button {
+                       margin-top: 10px;
+                       background-color: orange;
+                       color: white;
+                       border: none;
+                       padding: 8px 16px;
+                       border-radius: 20px;
+                       cursor: pointer;
+                       font-size: 14px;
+    
+                       &:hover {
+                           background-color: #ff9800;
+                       }
+                   }
+               }
+    
+               // Bulle "250k Assisted Student"
+               .banner-info-item1 {
+                   top: 200px;
+                   left: 0px; // Ajustez pour positionner
+               }
+    
+               // Bulle "Congratulations"
+               .banner-info-item2 {
+                   top: 450px;
+                   right: 50px; // Ajustez pour positionner
+               }
+    
+               // Bulle "User Experience Class"
+               .banner-info-item3 {
+                   bottom: 150px;
+                   left: 0%;
+                   transform: translateX(-50%);
+               }
+           }
     }
+
+
 
     // Points de rupture pour tablettes et mobiles
     @media (max-width: $tablet-breakpoint) {
-        padding: 15px;
 
         .header-top {
             flex-direction: column;
@@ -208,7 +220,6 @@
     }
 
     @media (max-width: $mobile-breakpoint) {
-        padding: 10px;
 
         .header-top {
             flex-direction: column;

@@ -18,7 +18,7 @@ const Header = () => {
     <section className="header">
       <div className="header-top">
         <div className="banner-logo">
-          <img src={BannerLogo} alt="Bannière" />
+          <img src={BannerLogo} alt="TOTC Logo" />
         </div>
         <div className="banner-nav">
           <nav aria-label="Main navigation">
@@ -46,7 +46,7 @@ const Header = () => {
             <span>Studying</span> Online is now much easier
           </h1>
           <p>
-            TOTC is an interesting platform that will teach you in more an
+            TOTC is an interesting platform that will teach you in a more
             interactive way
           </p>
           <div className="banner-play-btn">
@@ -57,25 +57,25 @@ const Header = () => {
         </div>
         <div className="banner-info">
           <div className="banner-info-img">
-            <img src={TeenageGirl} alt="Bannière" />
+            <img src={TeenageGirl} alt="Teenage Girl" />
+            <img className="icon" src={IconHeader} alt="Class Icon" />
           </div>
           <div className="banner-info-item banner-info-item1">
-            <img src={IconHeader2} alt="Bannière" />
+            <img src={IconHeader2} alt="Student Icon" />
             <h2>250k</h2>
             <p>Assisted Student</p>
           </div>
+
           <div className="banner-info-item banner-info-item2">
+            <i className="fa-regular fa-envelope"></i>
             <h2>Congratulations</h2>
             <p>Your admission completed</p>
           </div>
           <div className="banner-info-item banner-info-item3">
-            <img src={IconHeader3} alt="Bannière" />
+            <img src={IconHeader3} alt="Class Icon" />
             <h2>User Experience Class</h2>
             <p>Today at 12.00 PM</p>
             <button>Join Now</button>
-          </div>
-          <div>
-            <img src={IconHeader} alt="Bannière" />
           </div>
         </div>
       </section>
