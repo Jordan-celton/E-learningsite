@@ -1,18 +1,12 @@
 @use '../styles/App.scss' as *;
 @use "sass:color";
 
-// Variables pour les couleurs et marges
-$primary-color: #00b5d7;
-$secondary-color: orange;
-$text-color: white;
-$mobile-breakpoint: 768px;
-$tablet-breakpoint: 1024px;
-
 .header {
-    background-color: $primary-color;
-    color: $text-color;
+    background-color: $color-tertiary;
+    color: $color-primary;
     padding: 20px;
     clip-path: ellipse(100% 124% at 50% -26%);
+    height: 1119px;
 
     // Header top (logo, navigation et boutons)
     .header-top {
@@ -36,24 +30,38 @@ $tablet-breakpoint: 1024px;
         }
 
         .banner-buttons {
+            display: flex;
+            gap: 10px;
 
             .login-btn,
             .signup-btn {
-                background-color: $text-color;
-                color: $primary-color;
+                background-color: $color-primary;
+                color: $color-secondary;
                 border: none;
                 padding: 10px 20px;
                 border-radius: 5px;
                 cursor: pointer;
 
                 &:hover {
-                    background-color: lighten($text-color, 20%);
+                    background-color: lighten($color-primary, 10%);
                 }
             }
 
             .signup-btn {
-                margin-left: 10px;
+                background-color: #87D2D4;
+                color: $color-primary;
             }
+        }
+    }
+
+    .banner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+
+        .banner-img img {
+            max-width: 400px;
         }
     }
 
@@ -64,7 +72,10 @@ $tablet-breakpoint: 1024px;
 
         h1 {
             font-size: 36px;
-            color: $secondary-color;
+
+            span {
+                color: orange;
+            }
         }
 
         p {
@@ -79,52 +90,65 @@ $tablet-breakpoint: 1024px;
             gap: 10px;
 
             button {
-                background-color: $secondary-color;
-                color: $text-color;
+                background-color: #87D2D4;
+                color: $color-primary;
                 border: none;
                 padding: 10px 20px;
                 border-radius: 5px;
                 cursor: pointer;
 
                 &:hover {
-                    background-color: darken($secondary-color, 10%);
+                    background-color: lighten(#87D2D4, 10%);
                 }
             }
 
             img {
-                width: 20px;
+                margin-bottom: -15px;
+                width: 80px;
+                height: 80px;
             }
 
             span {
-                color: $text-color;
+                color: $color-secondary;
             }
         }
     }
 
     // Informations additionnelles
     .banner-info {
-        display: flex;
-        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); // Grid adaptative
+        gap: 20px;
         justify-content: center;
-        margin-top: 30px;
+        align-items: center;
+        margin-top: 50px;
 
         .banner-info-img img {
-            max-width: 400px;
+            max-width: 100%;
         }
 
-        .banner-info-item1,
-        .banner-info-item2,
-        .banner-info-item3 {
-            background-color: $text-color;
-            color: black;
+        .banner-info-item {
+            background: linear-gradient(135deg, $color-primary, $color-tertiary);
+            color: white;
             padding: 20px;
-            border-radius: 10px;
-            margin: 10px;
+            border-radius: 15px;
             text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+                transform: translateY(-10px) scale(1.05);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+
+            img {
+                max-width: 50px;
+                margin-bottom: 10px;
+            }
 
             h2 {
-                font-size: 24px;
-                margin-bottom: 5px;
+                font-size: 18px;
+                margin-bottom: 10px;
             }
 
             p {
@@ -133,24 +157,22 @@ $tablet-breakpoint: 1024px;
 
             button {
                 margin-top: 10px;
-                background-color: $primary-color;
-                color: $text-color;
-                padding: 10px;
+                background-color: $color-secondary;
+                color: $color-primary;
+                padding: 8px;
                 border: none;
                 border-radius: 5px;
                 cursor: pointer;
 
                 &:hover {
-                    background-color: darken($primary-color, 10%);
+                    background-color: lighten($color-secondary, 10%);
                 }
             }
         }
     }
-}
 
-// Points de rupture pour tablettes et mobiles
-@media (max-width: $tablet-breakpoint) {
-    .header {
+    // Points de rupture pour tablettes et mobiles
+    @media (max-width: $tablet-breakpoint) {
         padding: 15px;
 
         .header-top {
@@ -177,22 +199,21 @@ $tablet-breakpoint: 1024px;
         }
 
         .banner-info {
-            flex-wrap: wrap;
+            gap: 15px;
 
-            .banner-info-item1,
-            .banner-info-item2,
-            .banner-info-item3 {
+            .banner-info-item {
                 max-width: 300px;
             }
         }
     }
-}
 
-@media (max-width: $mobile-breakpoint) {
-    .header {
+    @media (max-width: $mobile-breakpoint) {
         padding: 10px;
 
         .header-top {
+            flex-direction: column;
+            align-items: center;
+
             .banner-logo img {
                 width: 80px;
             }
@@ -235,16 +256,9 @@ $tablet-breakpoint: 1024px;
         }
 
         .banner-info {
-            flex-direction: column;
-            align-items: center;
+            gap: 10px;
 
-            .banner-info-img img {
-                max-width: 100%;
-            }
-
-            .banner-info-item1,
-            .banner-info-item2,
-            .banner-info-item3 {
+            .banner-info-item {
                 width: 100%;
                 margin: 10px 0;
             }

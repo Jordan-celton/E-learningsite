@@ -39,6 +39,11 @@ $border-radius-large: 20px;
 
 $gradient-primary: linear-gradient(90deg, #49BBBD 0%, #ACACAC 100%);
 
+// Variables de breakpoints
+
+$mobile-breakpoint: 768px;
+$tablet-breakpoint: 1024px;
+
 // Mixins
 
 @mixin flex-center {

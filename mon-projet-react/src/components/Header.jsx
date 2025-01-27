@@ -40,41 +40,45 @@ const Header = () => {
           </button>
         </div>
       </div>
-      <div className="banner-title">
-        <h1>Studying Online is now much easier</h1>
-        <p>
-          TOTC is an interesting platform that will teach you in more an
-          interactive way
-        </p>
-        <div className="banner-play-btn">
-          <button>Join for free</button>
-          <img src={btnPlay} alt="Play icon" />
-          <span>Watch how it works</span>
+      <section className="banner">
+        <div className="banner-title">
+          <h1>
+            <span>Studying</span> Online is now much easier
+          </h1>
+          <p>
+            TOTC is an interesting platform that will teach you in more an
+            interactive way
+          </p>
+          <div className="banner-play-btn">
+            <button>Join for free</button>
+            <img src={btnPlay} alt="Play icon" />
+            <span>Watch how it works</span>
+          </div>
         </div>
-      </div>
-      <div className="banner-info">
-        <div className="banner-info-img">
-          <img src={TeenageGirl} alt="Bannière" />
+        <div className="banner-info">
+          <div className="banner-info-img">
+            <img src={TeenageGirl} alt="Bannière" />
+          </div>
+          <div className="banner-info-item banner-info-item1">
+            <img src={IconHeader2} alt="Bannière" />
+            <h2>250k</h2>
+            <p>Assisted Student</p>
+          </div>
+          <div className="banner-info-item banner-info-item2">
+            <h2>Congratulations</h2>
+            <p>Your admission completed</p>
+          </div>
+          <div className="banner-info-item banner-info-item3">
+            <img src={IconHeader3} alt="Bannière" />
+            <h2>User Experience Class</h2>
+            <p>Today at 12.00 PM</p>
+            <button>Join Now</button>
+          </div>
+          <div>
+            <img src={IconHeader} alt="Bannière" />
+          </div>
         </div>
-        <div className="banner-info-item1">
-          <img src={IconHeader2} alt="Bannière" />
-          <h2>250k</h2>
-          <p>Assisted Student</p>
-        </div>
-        <div className="banner-info-item2">
-          <h2>Congratulations</h2>
-          <p>Your admission completed</p>
-        </div>
-        <div className="banner-info-item3">
-          <img src={IconHeader3} alt="Bannière" />
-          <h2>User Experience Class</h2>
-          <p>Today at 12.00 PM</p>
-          <button>Join Now</button>
-        </div>
-        <div>
-          <img src={IconHeader} alt="Bannière" />
-        </div>
-      </div>
+      </section>
     </section>
   );
 };
