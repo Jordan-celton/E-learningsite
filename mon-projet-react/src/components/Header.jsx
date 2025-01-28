@@ -67,7 +67,7 @@ const Header = () => {
           </div>
 
           <div className="banner-info-item banner-info-item2">
-            <i className="fa-regular fa-envelope"></i>
+            <i className="fa-solid fa-envelope" aria-hidden="true"></i>
             <h2>Congratulations</h2>
             <p>Your admission completed</p>
           </div>
