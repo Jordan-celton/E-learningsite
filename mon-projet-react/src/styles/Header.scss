@@ -43,6 +43,7 @@
                 font-weight: bold;
                 cursor: pointer;
                 transition: background-color 0.3s ease;
+                border: none;
             }
 
             .signup-btn {
@@ -84,7 +85,7 @@
         p {
             font-size: $size-medium;
             margin: $margin-small 0;
-            color: $color-quaternary;
+            color: $color-primary;
         }
 
         .banner-play-btn {
@@ -107,9 +108,10 @@
             }
 
             span {
-                color: $color-quinary;
+                color: $color-secondary;
                 font-family: $font-primary;
                 font-size: $size-small;
+                font-weight: bold;
             }
         }
     }
