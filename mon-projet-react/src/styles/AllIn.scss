@@ -1,0 +1,71 @@
+@import "app.scss"; // 🔥 Importation des variables et mixins
+
+.all-in {
+    text-align: center;
+    padding: 60px 20px;
+
+    &__title {
+        @include responsive-text($size-large);
+        font-weight: bold;
+        margin-bottom: $margin-small;
+
+        &--primary {
+            color: $color-nonary;
+        }
+
+        &--secondary {
+            color: $color-elevenary;
+        }
+
+    }
+
+    &__text {
+        @include responsive-text($size-medium);
+        max-width: 700px;
+        margin: 0 auto;
+        color: $color-nonary;
+    }
+}
+
+.all-in__features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 20px;
+}
+
+.all-in__feature {
+    padding: $padding-medium;
+    border-radius: $border-radius-large;
+    text-align: center;
+    max-width: 350px;
+    transition: transform 0.3s ease-in-out;
+
+    &-image {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        margin-bottom: $margin-small;
+    }
+
+    &-title {
+        @include responsive-text($size-medium);
+        font-weight: bold;
+        color: $color-nonary;
+        margin-bottom: $margin-small;
+    }
+
+    &-text {
+        font-size: $size-small;
+        color: $color-nonary;
+    }
+}
+
+// 📱 Responsive Design
+@media (max-width: $mobile-breakpoint) {
+    .all-in__features {
+        flex-direction: column;
+        align-items: center;
+    }
+}
