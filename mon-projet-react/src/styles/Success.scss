@@ -41,7 +41,8 @@
                         font-size: 2.8rem;
                         font-weight: bold;
                         background: linear-gradient(135deg, #136CB5, #49BBBD);
-                        -webkit-background-clip: text; 
+                        -webkit-background-clip: text;
+                        background-clip: text;
                         -webkit-text-fill-color: transparent;
                         font-family: 'Buenos Aires Trial', sans-serif; 
                     }
