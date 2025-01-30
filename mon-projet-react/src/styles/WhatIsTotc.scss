@@ -1,0 +1,129 @@
+@import "app.scss"; // 🎯 Importation des variables globales
+
+.what-is-totc {
+    text-align: center;
+    padding: 60px 20px;
+    color: $color-secondary;
+
+    &__title {
+        @include responsive-text($size-large);
+        font-weight: bold;
+        margin-bottom: $margin-medium;
+
+        &--primary {
+            color: $color-nonary;
+        }
+
+        &--secondary {
+            color: $color-tertiary;
+        }
+    }
+
+    &__text {
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: $size-medium;
+        color: $color-nonary;
+        line-height: 1.6;
+    }
+}
+
+// ✅ Conteneur pour aligner les images côte à côte sur desktop
+.what-is-totc__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 50px 20px;
+
+    @media (max-width: $mobile-breakpoint) {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+.what-is-totc__image {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    border-radius: $border-radius-large;
+    overflow: hidden;
+
+    h2 {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: $size-medium;
+        font-weight: bold;
+        color: $color-primary;
+        padding: 10px 20px;
+        border-radius: $border-radius-large;
+        width: 80%;
+    }
+
+    .custom-button {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 12px 25px;
+        border-radius: $border-radius-large;
+        font-size: $size-small;
+        transition: 0.3s ease-in-out;
+        font-weight: bold;
+        cursor: pointer;
+        border: 1px solid $color-primary;
+        background-color: transparent;
+        color: $color-primary;
+
+        &.active {
+            background-color: $color-tertiary;
+            color: white;
+            border: none;
+        }
+    }
+
+    &--img {
+        width: 100%;
+        height: auto;
+        border-radius: $border-radius-large;
+        object-fit: cover;
+    }
+}
+
+  // 📱 et Tablette : Ajustements pour les petits écrans
+  @media (max-width: $mobile-breakpoint) {
+      h2 {
+          top: 25%; // Descend légèrement le titre pour ne pas chevaucher le bouton en mobile
+          font-size: $size-small;
+          width: 90%;
+      }
+
+      .custom-button {
+          top: 75%; // Déplace le bouton plus bas pour éviter le chevauchement
+          font-size: 0.9rem;
+          padding: 10px 20px;
+      }
+  }
+
+  // 🖥️ Tablette : Ajustements pour la version tablette (768px à 1024px)
+  @media (min-width: $mobile-breakpoint) and (max-width: $tablet-breakpoint) {
+      h2 {
+          top: 30%; // Maintien une position un peu plus basse que le mobile
+          font-size: $size-medium;
+          width: 85%;
+      }
+
+      .custom-button {
+          top: 70%; // Légèrement plus bas qu'en desktop
+          font-size: 1rem;
+          padding: 10px 22px;
+      }
+  }
+  
